@@ -1,0 +1,48 @@
+# Core ML libraries
+numpy==1.24.3
+pandas==2.0.3
+scikit-learn==1.3.0
+scipy==1.11.1
+
+# Deep Learning (optional, uncomment if needed)
+# tensorflow==2.13.0
+# torch==2.0.1
+# keras==2.13.1
+
+# Data visualization
+matplotlib==3.7.2
+seaborn==0.12.2
+plotly==5.15.0
+
+# Jupyter and notebooks
+jupyter==1.0.0
+notebook==7.0.2
+ipykernel==6.25.0
+
+# Data processing and utilities
+openpyxl==3.1.2  # For Excel files
+xlrd==2.0.1      # For reading Excel files
+pillow==10.0.0   # For image processing
+
+# Machine Learning utilities
+imbalanced-learn==0.11.0  # For handling imbalanced datasets
+xgboost==1.7.6           # Gradient boosting
+lightgbm==4.0.0          # Light gradient boosting
+
+# Model interpretation and XAI
+shap==0.42.1     # SHAP values for model explanation
+lime==0.2.0.1    # Local Interpretable Model-Agnostic Explanations
+
+# Time series analysis
+statsmodels==0.14.0
+prophet==1.1.4   # Facebook's time series forecasting
+
+# Development tools
+black==23.7.0    # Code formatter
+flake8==6.1.0    # Linter
+pytest==7.4.0    # Testing framework
+
+# Other utilities
+tqdm==4.65.0     # Progress bars
+joblib==1.3.1    # Parallel processing
+requests==2.31.0 # HTTP library
