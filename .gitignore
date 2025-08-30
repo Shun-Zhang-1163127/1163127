@@ -92,6 +92,9 @@ data/external/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 !data/external/.gitkeep
+# Allow sample data files for development
+!data/processed/*sample*.csv
+!data/processed/*sample*.json
 
 # Model files
 *.pkl
@@ -114,13 +117,18 @@ reports/figures/*
 *.bak
 
 # Large files
-*.csv
-*.json
+# *.csv  # Commented out to allow sample CSV files
+# *.json # Commented out to allow sample JSON files
 *.xml
 *.zip
 *.gz
 *.tar
 *.rar
+
+# Exclude large CSV files but allow samples
+data/raw/*.csv
+data/processed/accepted_2007_to_2018Q4.csv
+data/processed/rejected_2007_to_2018Q4.csv
 
 # Keep .gitkeep files
 !**/.gitkeep
