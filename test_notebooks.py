@@ -40,28 +40,15 @@ def load_sample_lending_data():
     import os
     
     data_dir = 'data/processed/'
-    accepted_file = 'accepted_sample_1000.csv'
-    rejected_file = 'rejected_sample_1000.csv'
+    accepted_file = 'accepted_sample_10000.csv'
+    rejected_file = 'rejected_sample_10000.csv'
     
     try:
-        # Load accepted loans sample
+        # Load accepted loans sample only for consistent analysis
         accepted_path = os.path.join(data_dir, accepted_file)
         print(f"Loading accepted loans from: {accepted_path}")
-        df_accepted = pd.read_csv(accepted_path)
-        df_accepted['loan_status_category'] = 'accepted'
-        
-        # Load rejected loans sample (if available)
-        rejected_path = os.path.join(data_dir, rejected_file)
-        if os.path.exists(rejected_path):
-            print(f"Loading rejected loans from: {rejected_path}")
-            df_rejected = pd.read_csv(rejected_path)
-            df_rejected['loan_status_category'] = 'rejected'
-            
-            # Combine accepted and rejected samples
-            df = pd.concat([df_accepted, df_rejected], ignore_index=True)
-        else:
-            print("Rejected loans file not found, using accepted loans only")
-            df = df_accepted
+        df = pd.read_csv(accepted_path)
+        df['loan_status_category'] = 'accepted'
         
         # Standardize column names for testing (map to expected names)
         column_mapping = {
@@ -94,7 +81,7 @@ def load_sample_lending_data():
         if 'interest_rate' in df.columns:
             df['interest_rate'] = pd.to_numeric(df['interest_rate'].astype(str).str.replace('%', ''), errors='coerce')
         
-        print(f"✓ Successfully loaded dataset: {len(df)} records, {len(df.columns)} columns")
+        print(f"✓ Successfully loaded accepted loans dataset: {len(df)} records, {len(df.columns)} columns")
         return df
         
     except Exception as e:
@@ -632,7 +619,7 @@ if __name__ == "__main__":
     # Load real sample dataset
     print("Loading real sample lending dataset for validation...")
     df = load_sample_lending_data()
-    print(f"✓ Loaded dataset: {df.shape[0]} loans, {df.shape[1]} features")
+    print(f"✓ Loaded accepted loans dataset: {df.shape[0]} loans, {df.shape[1]} features")
     
     # Execute Notebook 1 tests
     print("\n" + "─"*70)
@@ -663,7 +650,7 @@ if __name__ == "__main__":
     print("\n" + "="*80)
     print("COMPREHENSIVE VALIDATION SUMMARY")
     print("="*80)
-    print(f"📊 Dataset Generated: {df.shape[0]:,} records, {df.shape[1]} variables")
+    print(f"📊 Accepted Loans Dataset: {df.shape[0]:,} records, {df.shape[1]} variables")
     print(f"🔧 Notebook 1 Validation:")
     print(f"   • Missing value patterns: {len(missing_analysis)} columns analyzed")
     print(f"   • Outlier detection: {outlier_count} outliers identified")
