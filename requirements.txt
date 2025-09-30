@@ -25,13 +25,17 @@ xlrd==2.0.1      # For reading Excel files
 pillow==10.0.0   # For image processing
 
 # Machine Learning utilities
-imbalanced-learn==0.11.0  # For handling imbalanced datasets
+imbalanced-learn==0.11.0  # For handling imbalanced datasets (SMOTE)
 xgboost==1.7.6           # Gradient boosting
 lightgbm==4.0.0          # Light gradient boosting
 
-# Model interpretation and XAI
+# Feature Engineering for Assignment 03
+category-encoders==2.6.0  # Binary encoding and other categorical encoders
+
+# Model interpretation and XAI for Assignment 03
 shap==0.42.1     # SHAP values for model explanation
 lime==0.2.0.1    # Local Interpretable Model-Agnostic Explanations
+graphviz==0.20.1 # Decision tree visualization
 
 # Time series analysis
 statsmodels==0.14.0
